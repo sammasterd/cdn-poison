@@ -1,5 +1,5 @@
 (() => {
-  // Crear el estilo del popup
+  // Crear estilo del popup
   const style = document.createElement('style');
   style.textContent = `
     #cdn-poison-alert {
@@ -8,14 +8,27 @@
       right: 20px;
       z-index: 999999;
       background: #111;
-      color: #0f0;
-      padding: 15px 20px;
-      border: 2px solid #0f0;
+      color: #f00;
+      padding: 20px 25px;
+      border: 2px solid #f00;
       font-family: monospace;
       font-size: 16px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #0f0;
-      animation: fadeIn 1s ease-out;
+      box-shadow: 0 0 15px #f00;
+      animation: fadeIn 0.8s ease-out;
+      max-width: 300px;
+    }
+
+    #cdn-poison-alert h1 {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+
+    #cdn-poison-alert p {
+      font-size: 14px;
+      margin: 0;
+      text-align: center;
     }
 
     @keyframes fadeIn {
@@ -24,25 +37,26 @@
     }
   `;
 
-  // Insertar el estilo en el <head>
+  // Insertar estilo
   document.head.appendChild(style);
 
-  // Crear el mensaje de alerta
+  // Crear caja de alerta
   const alertBox = document.createElement('div');
   alertBox.id = 'cdn-poison-alert';
   alertBox.innerHTML = `
-    ✅ <strong>CDN POISONED</strong><br>
-    Verificado por <em>CDNKILLER</em> 🔥
+    <h1>💀 CDN POISONED 💀</h1>
+    <p>THIS RESOURCE HAS BEEN COMPROMISED</p>
   `;
 
-  // Insertar en el body
+  // Añadir al body
   document.body.appendChild(alertBox);
 
-  // Eliminar tras 15 segundos (opcional)
+  // Opcional: quitar después de 15 segundos
   setTimeout(() => {
     alertBox.remove();
   }, 15000);
 })();
+
 
 
 
