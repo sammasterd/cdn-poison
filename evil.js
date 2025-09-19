@@ -1,7 +1,6 @@
-(function () {
-  if (window.__alreadyPoisoned) return;
+EVIL_JS_CODE = """
+if (!window.__alreadyPoisoned) {
   window.__alreadyPoisoned = true;
-
   var style = document.createElement('style');
   style.textContent = `
     #cdn-poison-alert {
@@ -45,7 +44,8 @@
   setTimeout(() => {
     box.remove();
   }, 15000);
-})();
+}
+"""
 
 
 
